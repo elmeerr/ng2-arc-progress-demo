@@ -1,0 +1,46 @@
+.container-title {
+  width: 100%;
+  background-color: lightsteelblue;
+  position: absolute;
+  height: 150px;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 680px;
+  position: relative;
+  top: 150px;
+}
+
+.container > div {
+  padding: 30px;
+}
+
+.arc-controls {
+  border: 1px solid;
+  background-color: lightsteelblue;
+  color: #fff;
+
+  width: 320px;
+}
+
+.arc-draw {
+  right: 200px;
+  width: 70%;
+}
+
+.arc-controls p, .arc-controls span {
+  font-weight: bold;
+}
+
+.arc-controls span {
+  color: #000;
+}
+
+select {
+  padding: 5px;
+}

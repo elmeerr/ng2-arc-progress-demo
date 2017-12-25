@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {Ng2ArcProgressModule} from 'angular2-arc-progress';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    Ng2ArcProgressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

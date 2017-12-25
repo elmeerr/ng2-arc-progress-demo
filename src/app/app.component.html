@@ -1,20 +1,78 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container-title">
+  <h1>Ng Arc Progress</h1>
+  <h2>Angular 5 component to track progress using arc</h2>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="arc-controls">
+
+    <div style="display: inline;">
+      <p>
+        Change progress:<input id="txtProgressRange"
+                               #rangeInput
+                               type="range"
+                               min="0"
+                               max="100"
+                               (change)="updateProgress($event)"
+                               value="50"
+                               style="vertical-align: middle;"/>
+      </p>
+    </div>
+    <span>Progress value: {{progressValue}}</span>
+
+    <div style="display: inline;">
+      <p>Change size: <input id="txtArcSize" #ArcSize step="1" type="range" min="100" max="600"
+                             (change)="updateSize($event)"
+                             value="300" style="vertical-align: middle;"/>
+      </p>
+    </div>
+    <span>Arc container size: {{arcSizeValue}}</span>
+
+    <div style="display: inline;">
+      <p>Change gap: <input id="txtStartAngle" #ArcGap step="1" type="range" min="0" max="90"
+                            (change)="updateGap($event)"
+                            value="90" style="vertical-align: middle;"/>
+      </p>
+    </div>
+    <span>Arc gap: {{arcGapValue}}</span>
+
+    <div style="display: inline;">
+      <p>Arc background color:
+        <select #selectBackground (change)="updateBackgroundColor($event)">
+          <option value="lightgrey" selected>Lightgrey</option>
+          <option value="red">Red</option>
+          <option value="yellow">Yellow</option>
+          <option value="blue">Blue</option>
+        </select>
+      </p>
+    </div>
+    <span>Selected background color: {{arcBackgroundColor}}</span>
+    <div style="display: inline;">
+      <p>Arc progress:
+        <select #selectFill (change)="updateFillColor($event)">
+          <option value="lightsteelblue" selected>Lightsteelblue</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="pink">Pink</option>
+        </select>
+      </p>
+    </div>
+    <span>Selected fill color: {{arcFillColor}}</span>
+    <div style="display: inline;">
+      <p>Change stroke width: <input id="txtStrokeWidth" #strokeWidth type="range" min="1" max="10"
+                                     (change)="updateStroke($event)"
+                                     value="5" style="vertical-align: middle;"/>
+      </p>
+    </div>
+    <span>Arc stroke width: {{arcStrokeWidth}}</span>
+  </div>
+  <div class="arc-draw">
+    <ng2-arc-progress [progress]="progressValue"
+                      [size]="arcSizeValue"
+                      [gap]="arcGapValue"
+                      [backgroundColor]="arcBackgroundColor"
+                      [progressColor]="arcFillColor"
+                      [strokeWidth]="arcStrokeWidth"
+    ></ng2-arc-progress>
+  </div>
+</div>
 
